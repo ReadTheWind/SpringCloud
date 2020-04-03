@@ -1,7 +1,7 @@
 # Learn Spring Cloud 
 ## master 分支： 搭建 spring cloud 框架，server、client  
 
-##eureka_cluster 分支： 集群配置
+## eureka_cluster 分支： 集群配置
 >1.active profile  cluster1  
 >2.active profile  cluster2
 > 需要在host文件配置
