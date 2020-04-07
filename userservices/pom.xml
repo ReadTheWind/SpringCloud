@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.learn.springcloud</groupId>
-    <artifactId>ribbon</artifactId>
+    <artifactId>userservices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ribbon</name>
-    <description>Demo project for Spring Boot ribbon</description>
+    <name>userservices</name>
+    <description>user service client</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -24,16 +24,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!-- 添加ribbon 依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
 
         <dependency>
