@@ -1,0 +1,17 @@
+# Default ignored files
+/workspace.xml
+/springCloud.iml
+/compiler.xml
+/encodings.xml
+/misc.xml
+/modules.xml
+/vcs.xml
+
+.idea
+/libraries/Maven__com_netflix_netflix_commons_netflix_infix_0_3_0.xml
+
+/.mvn/
+/mvnw.cmd
+/mvnw
+/libraries/
+/uiDesigner.xml
