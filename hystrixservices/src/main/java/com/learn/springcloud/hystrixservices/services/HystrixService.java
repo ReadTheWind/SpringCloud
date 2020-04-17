@@ -17,4 +17,11 @@ public interface HystrixService {
      */
     Result getAllUser();
 
+    /**
+     * 获取所有用户信息
+     *
+     * @return 用户信息
+     */
+    Result getAllUserIgnoreSomeException(Integer id);
+
 }

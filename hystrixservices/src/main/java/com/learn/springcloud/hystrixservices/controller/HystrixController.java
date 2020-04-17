@@ -5,6 +5,7 @@ import com.learn.springcloud.hystrixservices.services.HystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -29,4 +30,9 @@ public class HystrixController {
         return allUser;
     }
 
+    @GetMapping("/getUser")
+    public Result getUser(@RequestParam Integer id) {
+        Result allUser = hystrixService.getAllUserIgnoreSomeException(id);
+        return allUser;
+    }
 }
