@@ -4,6 +4,7 @@ import com.learn.springcloud.common.domain.Result;
 import com.learn.springcloud.common.domain.User;
 import com.learn.springcloud.hystrixservices.services.HystrixService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class HystrixServiceImpl implements HystrixService {
     @HystrixCommand(fallbackMethod = "defaultUser")
     @Override
     public Result getAllUser() {
-        Result re = restTemplate.getForObject(userServiceUrl + "/user/getUser", Result.class);
+        Result re = restTemplate.getForObject(userServiceUrl + "/user/getAllUser", Result.class);
         System.out.println(re);
         return re;
     }
@@ -68,10 +69,8 @@ public class HystrixServiceImpl implements HystrixService {
         if (id.equals(3)) {
             throw new IllegalArgumentException();
         }
-        User user = new User();
-        user.setUserName("用户");
-        user.setPassWord("123456");
-        return Result.success("成功", user);
+
+        return restTemplate.getForObject(userServiceUrl + "/user/getAllUser", Result.class);
     }
 
     public Result defaultUser2(Integer id) {
@@ -79,5 +78,23 @@ public class HystrixServiceImpl implements HystrixService {
         user.setUserName("默认用户" + id);
         user.setPassWord("123456");
         return Result.success("hystrix 断路默认返回！", user);
+    }
+
+    @CacheResult(cacheKeyMethod = "getCacheKey")
+    @HystrixCommand(
+            fallbackMethod = "defaultUser2",
+            commandKey = "getUserByIdWithCache"
+    )
+    @Override
+    public Result getUserByIdWithCache(Integer id) {
+        System.out.println("getUserByIdWithCache,id:" + id);
+
+        //这两种方式都支持
+//        return restTemplate.getForObject(userServiceUrl + "/user/getUser/{id}", Result.class, id);
+        return restTemplate.getForObject(userServiceUrl + "/user/getUser/{1}", Result.class, id);
+    }
+
+    private String getCacheKey(Integer id) {
+        return id.toString();
     }
 }

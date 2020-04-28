@@ -14,4 +14,6 @@ public interface UserServices {
 
     List<User> getAllUsers();
 
+    User getUserById(Integer id);
+
 }

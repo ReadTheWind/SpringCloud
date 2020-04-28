@@ -26,7 +26,14 @@ public class UserServicesImpl implements UserServices {
     @Override
     public List<User> getAllUsers() {
         List<User> allUser = userMapper.getAllUser();
-        System.out.println("获取所有redis信息！" + allUser.toString());
+        System.out.println("获取所有用户信息！" + allUser.toString());
         return allUser;
+    }
+
+    @Override
+    public User getUserById(Integer id) {
+        User user = userMapper.getById(id);
+        System.out.println("获取用户信息！" + user.toString());
+        return user;
     }
 }

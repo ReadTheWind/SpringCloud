@@ -1,7 +1,6 @@
 package com.learn.springcloud.hystrixservices.services;
 
 import com.learn.springcloud.common.domain.Result;
-import com.learn.springcloud.common.domain.User;
 
 /**
  * @author liuhuan
@@ -23,5 +22,12 @@ public interface HystrixService {
      * @return 用户信息
      */
     Result getAllUserIgnoreSomeException(Integer id);
+
+    /**
+     * 获取所有用户，使用缓存
+     *
+     * @return 所有用户
+     */
+    Result getUserByIdWithCache(Integer id);
 
 }

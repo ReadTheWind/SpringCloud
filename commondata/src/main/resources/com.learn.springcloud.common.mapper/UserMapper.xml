@@ -16,4 +16,9 @@
         select  id,code,name,phone_num,address,remark,deleted from `user` where  deleted = 0;
     </select>
 
+    <select id="getById" resultMap="baseResult" parameterType="integer">
+
+        select  id,code,name,phone_num,address,remark,deleted from `user` where  deleted = 0 and id = #{id};
+    </select>
+
 </mapper>

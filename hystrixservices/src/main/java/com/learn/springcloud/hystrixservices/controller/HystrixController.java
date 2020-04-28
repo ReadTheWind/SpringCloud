@@ -3,10 +3,7 @@ package com.learn.springcloud.hystrixservices.controller;
 import com.learn.springcloud.common.domain.Result;
 import com.learn.springcloud.hystrixservices.services.HystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author liuhuan
@@ -26,13 +23,16 @@ public class HystrixController {
 
     @GetMapping("/getUser")
     public Result getUser() {
-        Result allUser = hystrixService.getAllUser();
-        return allUser;
+        return hystrixService.getAllUser();
     }
 
     @GetMapping("/getUserIgnoreException")
     public Result getUser(@RequestParam Integer id) {
-        Result allUser = hystrixService.getAllUserIgnoreSomeException(id);
-        return allUser;
+        return hystrixService.getAllUserIgnoreSomeException(id);
+    }
+
+    @GetMapping("/getUserByIdWithCache/{id}")
+    public Result getUserByIdWithCache(@PathVariable Integer id) {
+        return hystrixService.getUserByIdWithCache(id);
     }
 }
