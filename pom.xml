@@ -54,7 +54,7 @@
         <module>commondata</module>
     </modules>
 
-    <build>
+    <!--<build>
         <finalName>${project.artifactId}</finalName>
         <resources>
             <resource>
@@ -62,7 +62,7 @@
                 <filtering>false</filtering>
             </resource>
             <resource>
-                <!-- 打包加入环境配置 -->
+                &lt;!&ndash; 打包加入环境配置 &ndash;&gt;
                 <directory>src/main/resources.${env}</directory>
                 <filtering>false</filtering>
             </resource>
@@ -73,7 +73,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
     <profiles>
         <!--开发环境-->
         <profile>
