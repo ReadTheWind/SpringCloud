@@ -1,7 +1,7 @@
 package com.learn.springcloud.userservices.controller;
 
-import com.learn.springcloud.userservices.domain.Result;
-import com.learn.springcloud.userservices.domain.User;
+import com.learn.springcloud.common.domain.Result;
+import com.learn.springcloud.common.domain.User;
 import com.learn.springcloud.userservices.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -30,7 +30,7 @@ public class HystrixController {
         return allUser;
     }
 
-    @GetMapping("/getUser")
+    @GetMapping("/getUserIgnoreException")
     public Result getUser(@RequestParam Integer id) {
         Result allUser = hystrixService.getAllUserIgnoreSomeException(id);
         return allUser;
