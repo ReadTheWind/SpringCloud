@@ -11,5 +11,21 @@
 
     <artifactId>commondata</artifactId>
 
+    <dependencies>
+        <!-- mybatis plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.3.1.tmp</version>
+        </dependency>
+    </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -33,3 +33,4 @@ build/
 /mvnw.cmd
 /mvnw
 
+/commondata/target/
