@@ -1,10 +1,11 @@
 package com.learn.springcloud.userservices.services.impl;
 
-import com.learn.springcloud.userservices.domain.User;
+import com.learn.springcloud.common.domain.User;
+import com.learn.springcloud.common.mapper.UserMapper;
 import com.learn.springcloud.userservices.services.UserServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,12 +16,24 @@ import java.util.List;
 @Service
 public class UserServicesImpl implements UserServices {
 
+    private final UserMapper userMapper;
+
+    @Autowired
+    public UserServicesImpl(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+
     @Override
     public List<User> getAllUsers() {
-        User user1 = new User();
-        user1.setPassWord("123456");
-        user1.setUserName("ribbon");
-        System.out.println("获取所有redis信息！");
-        return Collections.singletonList(user1);
+        List<User> allUser = userMapper.getAllUser();
+        System.out.println("获取所有用户信息！" + allUser.toString());
+        return allUser;
+    }
+
+    @Override
+    public User getUserById(Integer id) {
+        User user = userMapper.getById(id);
+        System.out.println("获取用户信息！" + user.toString());
+        return user;
     }
 }

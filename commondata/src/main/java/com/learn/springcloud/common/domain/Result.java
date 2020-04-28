@@ -1,4 +1,4 @@
-package com.learn.springcloud.userservices.domain;
+package com.learn.springcloud.common.domain;
 
 import java.io.Serializable;
 

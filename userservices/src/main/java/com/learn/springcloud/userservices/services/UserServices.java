@@ -1,6 +1,6 @@
 package com.learn.springcloud.userservices.services;
 
-import com.learn.springcloud.userservices.domain.User;
+import com.learn.springcloud.common.domain.User;
 
 import java.util.List;
 
@@ -13,5 +13,7 @@ public interface UserServices {
 
 
     List<User> getAllUsers();
+
+    User getUserById(Integer id);
 
 }

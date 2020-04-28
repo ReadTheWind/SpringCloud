@@ -1,9 +1,11 @@
 package com.learn.springcloud.userservices.controller;
 
-import com.learn.springcloud.userservices.domain.Result;
-import com.learn.springcloud.userservices.domain.User;
+import com.learn.springcloud.common.domain.Result;
+import com.learn.springcloud.common.domain.User;
 import com.learn.springcloud.userservices.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,10 +27,16 @@ public class UserController {
         this.userServices = userServices;
     }
 
-    @RequestMapping("/getUser")
-    public Result getUser() {
+    @RequestMapping("/getAllUser")
+    public Result getAllUser() {
         List<User> allUsers = userServices.getAllUsers();
         return Result.success("获取成功", allUsers);
+    }
+
+    @GetMapping("/getUser/{id}")
+    public Result getUser(@PathVariable Integer id) {
+        User user = userServices.getUserById(id);
+        return Result.success("获取成功", user);
     }
 
 }
