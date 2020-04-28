@@ -35,4 +35,11 @@ public class HystrixController {
     public Result getUserByIdWithCache(@PathVariable Integer id) {
         return hystrixService.getUserByIdWithCache(id);
     }
+
+    @GetMapping("/removeCache/{id}")
+    public Result removeCache(@PathVariable Integer id) {
+        hystrixService.getUserByIdWithCache(id);
+        hystrixService.removeCache(id);
+        return hystrixService.getUserByIdWithCache(id);
+    }
 }

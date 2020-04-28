@@ -30,4 +30,11 @@ public interface HystrixService {
      */
     Result getUserByIdWithCache(Integer id);
 
+    /**
+     * 移除缓存
+     * @param id
+     * @return
+     */
+    Result removeCache(Integer id);
+
 }

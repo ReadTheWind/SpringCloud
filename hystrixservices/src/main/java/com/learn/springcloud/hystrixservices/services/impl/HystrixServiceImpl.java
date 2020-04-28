@@ -4,6 +4,7 @@ import com.learn.springcloud.common.domain.Result;
 import com.learn.springcloud.common.domain.User;
 import com.learn.springcloud.hystrixservices.services.HystrixService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheRemove;
 import com.netflix.hystrix.contrib.javanica.cache.annotation.CacheResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -94,7 +95,16 @@ public class HystrixServiceImpl implements HystrixService {
         return restTemplate.getForObject(userServiceUrl + "/user/getUser/{1}", Result.class, id);
     }
 
+
     private String getCacheKey(Integer id) {
         return id.toString();
+    }
+
+    @CacheRemove(commandKey = "getUserByIdWithCache",cacheKeyMethod ="getCacheKey" )
+    @Override
+    public Result removeCache(Integer id) {
+        System.out.println("测试移除缓存，id："+id);
+        //TODO
+        return null;
     }
 }
