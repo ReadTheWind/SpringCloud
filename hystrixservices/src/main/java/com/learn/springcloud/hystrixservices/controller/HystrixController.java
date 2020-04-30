@@ -1,9 +1,12 @@
 package com.learn.springcloud.hystrixservices.controller;
 
 import com.learn.springcloud.common.domain.Result;
+import com.learn.springcloud.common.domain.User;
 import com.learn.springcloud.hystrixservices.services.HystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author liuhuan
@@ -41,5 +44,11 @@ public class HystrixController {
         hystrixService.getUserByIdWithCache(id);
         hystrixService.removeCache(id);
         return hystrixService.getUserByIdWithCache(id);
+    }
+
+    @PostMapping("/batchSave")
+    public void batchSave(@RequestBody List<User> users) {
+
+        hystrixService.batchSave(users);
     }
 }

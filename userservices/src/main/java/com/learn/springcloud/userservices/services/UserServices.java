@@ -16,4 +16,6 @@ public interface UserServices {
 
     User getUserById(Integer id);
 
+    int BatchSave(List<User> users);
+
 }

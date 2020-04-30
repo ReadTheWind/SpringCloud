@@ -1,6 +1,9 @@
 package com.learn.springcloud.hystrixservices.services;
 
 import com.learn.springcloud.common.domain.Result;
+import com.learn.springcloud.common.domain.User;
+
+import java.util.List;
 
 /**
  * @author liuhuan
@@ -32,9 +35,17 @@ public interface HystrixService {
 
     /**
      * 移除缓存
+     *
      * @param id
      * @return
      */
     Result removeCache(Integer id);
+
+    /**
+     * 批量保存用户信息
+     *
+     * @param users
+     */
+    void batchSave(List<User> users);
 
 }

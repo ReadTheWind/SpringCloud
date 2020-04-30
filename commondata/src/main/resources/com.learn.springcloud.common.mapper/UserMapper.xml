@@ -21,4 +21,11 @@
         select  id,code,name,phone_num,address,remark,deleted from `user` where  deleted = 0 and id = #{id};
     </select>
 
+    <insert id="batchInsert">
+        insert into `user` (code,name,phone_num,address,remark) values
+        <foreach collection="users" item="user" separator=",">
+            (#{user.code},#{user.userName},#{user.phoneNum},#{user.address},#{user.remark})
+        </foreach>
+    </insert>
+
 </mapper>

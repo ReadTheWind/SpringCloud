@@ -52,6 +52,7 @@
         <module>hystrixservices</module>
         <module>ribbon</module>
         <module>commondata</module>
+        <module>userservices</module>
     </modules>
 
     <!--<build>
