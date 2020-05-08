@@ -24,7 +24,7 @@ public class UserController {
         this.userServices = userServices;
     }
 
-    @RequestMapping("/getAllUser")
+    @GetMapping("/getAllUser")
     public Result getAllUser() {
         List<User> allUsers = userServices.getAllUsers();
         return Result.success("获取成功", allUsers);
@@ -37,8 +37,9 @@ public class UserController {
     }
 
     @PostMapping("/batchSave")
-    public void batchSave(@RequestBody List<User> users) {
-        userServices.BatchSave(users);
+    public Result batchSave(@RequestBody List<User> users) {
+        int i = userServices.BatchSave(users);
+        return Result.success("获取成功", i);
     }
 
 }
