@@ -2,6 +2,7 @@ package com.learn.springcloud.feignservice.service;
 
 import com.learn.springcloud.common.domain.Result;
 import com.learn.springcloud.common.domain.User;
+import com.learn.springcloud.feignservice.service.impl.UserFeignFallbackServiceImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +16,7 @@ import java.util.List;
  * @author: lh
  * @create: 2020-05-08 09:40
  **/
-@FeignClient(value = "user-services-client")
+@FeignClient(value = "user-services-client", fallback = UserFeignFallbackServiceImpl.class)
 public interface UserFeignService {
 
     @GetMapping("/user/getAllUser")
