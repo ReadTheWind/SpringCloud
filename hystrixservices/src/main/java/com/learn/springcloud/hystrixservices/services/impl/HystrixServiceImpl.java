@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 /**
  * @author liuhuan
  * @Desc
@@ -106,5 +108,11 @@ public class HystrixServiceImpl implements HystrixService {
         System.out.println("测试移除缓存，id："+id);
         //TODO
         return null;
+    }
+
+
+    @Override
+    public void batchSave(List<User> users) {
+        restTemplate.postForEntity(userServiceUrl+"/user/batchSave",users,null);
     }
 }

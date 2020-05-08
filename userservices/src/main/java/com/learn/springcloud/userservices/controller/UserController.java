@@ -4,10 +4,7 @@ import com.learn.springcloud.common.domain.Result;
 import com.learn.springcloud.common.domain.User;
 import com.learn.springcloud.userservices.services.UserServices;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,6 +34,11 @@ public class UserController {
     public Result getUser(@PathVariable Integer id) {
         User user = userServices.getUserById(id);
         return Result.success("获取成功", user);
+    }
+
+    @PostMapping("/batchSave")
+    public void batchSave(@RequestBody List<User> users) {
+        userServices.BatchSave(users);
     }
 
 }
