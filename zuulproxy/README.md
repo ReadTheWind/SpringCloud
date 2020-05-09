@@ -38,4 +38,24 @@ SendForwardFilter | route | 500 | 只对请求上下文中有 forward.to 参数�
 SendErrorFilter | post | 0 | 当其他过滤器内部发生异常时的会由它来进行处理，产生错误响应
 SendResponseFilter | post | 1000 | 利用请求上下文的响应信息来组织请求成功的响应内容
 
+## Ribbon 和 Hystrix 的支持
+> 由于Zuul 自动集成了 Ribbon 和 Hystrix,因此 Zuul 天生就具有负载均衡和服务容错的能力，
+>我们可以用过Ribbon 和 Hystrix 的配置来配置 Zuul 中相应功能
+- 可以使用Hystrix 的配置来设置路由转发时 HystrixCommand 的执行超时时间
+```yaml
+hystrix:
+  command: #用于控制HystrixCommand的行为
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000 #配置HystrixCommand执行的超时时间，执行超过该时间会进行服务降级处理
+```
+
+- 可以使用Ribbon 的配置来设置路由转发时请求连接及处理的超时时间
+```yaml
+ribbon: #全局配置
+  ConnectTimeout: 1000 #服务请求连接超时时间（毫秒）
+  ReadTimeout: 3000 #服务请求处理超时时间（毫秒）
+```
 
