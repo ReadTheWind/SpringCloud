@@ -1,13 +1,13 @@
-package com.learn.springcloud.configserver;
+package com.learn.springcloud.configclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ConfigserverApplication {
+public class ConfigClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConfigserverApplication.class, args);
+        SpringApplication.run(ConfigClientApplication.class, args);
     }
 
 }
