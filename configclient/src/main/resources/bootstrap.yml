@@ -13,3 +13,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8001/eureka/
+
+# 开启 refresh 端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'
