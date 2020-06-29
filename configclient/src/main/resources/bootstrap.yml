@@ -9,6 +9,8 @@ spring:
       label: master #分支名称
       uri: http://localhost:8108 #配置中心地址
       name: config #配置文件名称
+      username: zhangsan
+      password: 123456
 eureka:
   client:
     service-url:
