@@ -1,0 +1,24 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: config-client
+  cloud:
+    config: #Config客户端配置
+      profile: dev #启用配置后缀名称
+      label: master #分支名称
+      uri: http://localhost:8108 #配置中心地址
+      name: config #配置文件名称
+      username: zhangsan
+      password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+
+# 开启 refresh 端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'
