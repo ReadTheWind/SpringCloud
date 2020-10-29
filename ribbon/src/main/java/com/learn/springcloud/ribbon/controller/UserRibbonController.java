@@ -2,7 +2,9 @@ package com.learn.springcloud.ribbon.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,6 +29,12 @@ public class UserRibbonController {
 
     @RequestMapping("/getUser")
     public Object getAllUser(){
-        return  restTemplate.getForObject(userServiceUrl+"/user/getUser",Object.class);
+        return  restTemplate.getForObject(userServiceUrl+"/user/getAllUser",Object.class);
     }
+
+    @GetMapping("/getUserById")
+    public Object getUserById(@RequestParam Integer id){
+        return  restTemplate.getForObject(userServiceUrl+"/user/getUser/{id}",Object.class,id);
+    }
+
 }

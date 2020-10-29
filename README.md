@@ -11,6 +11,11 @@
 ```
 ## eureka_security 分支： eureka 增加 spring security 认证
 
+## config 分支,演示外部集中化配置
+
+## Sleuth 分布式请求链路跟踪
+>  使用 userservices 及 ribbon 模块演示
+
 ## TODO 
 > 后续计划:学习 Ribbon、Hystrix、Feign、Zuul、Config、Bus、Sleuth、Consul、GateWay、Admin 等  
 > 整合 mongodb,redis,rocketMq,xxl,apollo 等  
